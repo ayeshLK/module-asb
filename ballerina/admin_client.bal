@@ -55,6 +55,15 @@ public isolated client class Client {
         'class: "io.xlibb.asb.admin.AsbAdminClientAdaptor"
     } external;
 
+    # Checks whether an ASB `topic` is available in the service bus resource.
+    # 
+    # + topic - Name of the topic
+    # + return - `true` if topic exists. `false` if topic does not exist, or else an `asb.admin:Error`
+    isolated remote function topicExists(string topic) returns boolean|Error = 
+    @java:Method {
+        'class: "io.xlibb.asb.admin.AsbAdminClientAdaptor"
+    } external;    
+
     # Creates an ASB `topic` in the service bus resource.
     # 
     # + topic - Name of the topic
@@ -73,6 +82,16 @@ public isolated client class Client {
         'class: "io.xlibb.asb.admin.AsbAdminClientAdaptor"
     } external;
 
+    # Checks whether an ASB `subscription` exists in the service bus resource.
+    # 
+    # + topic - Name of the topic
+    # + subscription - Name of the subscription
+    # + return - `true` if subscription exists. `false` if subscription does not exist, or else an `asb.admin:Error`
+    isolated remote function subscriptionExists(string topic, string subscription) returns boolean|Error =
+    @java:Method {
+        'class: "io.xlibb.asb.admin.AsbAdminClientAdaptor"
+    } external;
+    
     # Creates an ASB `subscription` in the service bus resource.
     # 
     # + topic - Name of the topic
